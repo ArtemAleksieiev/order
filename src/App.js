@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { AmplifyAuthenticator, AmplifyGreetings} from '@aws-amplify/ui-react';
+import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
+import Form from './Form.js';
 
 function App() {
-  return (
+  const [authState, setAuthState] = React.useState();
+  const [user, setUser] = React.useState();
+  React.useEffect(() => {
+    return onAuthUIStateChange((nextAuthState, authData) => {
+        setAuthState(nextAuthState);
+        setUser(authData)
+    });
+}, []);
+  console.log(user)
+  return authState === AuthState.SignedIn && user ?(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <AmplifyGreetings username={user.attributes.email}></AmplifyGreetings>
+      <div className="flex flex-column items-center justify-center pa3 bg-washed-red">
+        <h1>Leave your message here:</h1>
+        <Form />
+      </div>
     </div>
-  );
+    ) : (
+    <AmplifyAuthenticator />
+    );
 }
-
+//export default withAuthenticator(App, {initialAuthState: 'signup'});
 export default App;
