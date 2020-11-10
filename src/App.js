@@ -16,9 +16,8 @@ function App() {
   return authState === AuthState.SignedIn && user ?(
     <div className="App">
         <AmplifyGreetings username={user.attributes.email}></AmplifyGreetings>
-      <div className="flex flex-column items-center justify-center pa3 bg-washed-red">
-        <h1>Leave your message here:</h1>
-        <Form />
+      <div className="flex flex-column items-center justify-center pa3 bg-blue">
+      <Form />
       </div>
     </div>
     ) : (
