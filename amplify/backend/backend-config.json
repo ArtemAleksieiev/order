@@ -7,21 +7,5 @@
       "customAuth": false
     }
   },
-  "api": {
-    "amplifynotetaker": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authamplifynotetakerea0a3d8f"
-            }
-          },
-          "additionalAuthenticationProviders": []
-        }
-      }
-    }
-  }
+  "api": {}
 }
