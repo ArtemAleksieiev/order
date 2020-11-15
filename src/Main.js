@@ -24,7 +24,6 @@ const Main = () => {
         api.get('/').then(res => {
             console.log(res);
             setOrders(res.data.Items);
-            console.log(orders)
         });
     },[]);
 
