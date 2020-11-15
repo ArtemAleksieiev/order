@@ -1,6 +1,8 @@
 import React from 'react';
-import { AmplifyAuthenticator, AmplifyGreetings} from '@aws-amplify/ui-react';
-import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
+import { AmplifyGreetings }  from '@aws-amplify/ui-react';
+import { AuthState } from '@aws-amplify/ui-components';
+import { onAuthUIStateChange } from '@aws-amplify/ui-components';
 import Main from './Main.js';
 
 function App() {
