@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-//import Orders from './Orders';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import OrderTable from './OrderTable';
 
 const api = axios.create({
     baseURL: 'https://egm1k4zcb4.execute-api.us-east-2.amazonaws.com/default/CreateOrders'
@@ -54,34 +47,11 @@ const Main = () => {
         };
     };
     
-    return <>
-    <TableContainer component={Paper}>
-        <Table className='maintable' aria-label="simple table">
-            <TableHead>
-                <TableRow>
-                <TableCell>Customer</TableCell>
-                <TableCell align="right">Adress</TableCell>
-                <TableCell align="right">Description</TableCell>
-                <TableCell align="right">Phone</TableCell>
-                <TableCell align="right">Status</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-            {orders.map((order) => {
-                const { id, customer, adress, description, phone, status } = order
-                return  <TableRow key={id}>
-                        <TableCell component="th" scope="row">{customer}</TableCell>
-                        <TableCell align="right">{adress}</TableCell>
-                        <TableCell align="right">{description}</TableCell>
-                        <TableCell align="right">{phone}</TableCell>
-                        <TableCell align="right">{status}</TableCell>
-                        </TableRow>
-            })}
-            </TableBody>
-        </Table>
-    </TableContainer>
-    <h1>Create Order</h1>
-    <form onSubmit={handleSubmit}>
+    return (
+        <>
+        <OrderTable orders={orders} />       
+        <h1>Create Order</h1>
+        <form onSubmit={handleSubmit}>
         <label htmlFor="customer">Customer : </label>
         <input
             type="text"
@@ -96,7 +66,7 @@ const Main = () => {
             value={adress}
             onChange={(e) => setAdress(e.target.value)}
         />
-        <label htmlFor="description">Description` : </label>
+        <label htmlFor="description">Description : </label>
         <input
             type="text"
             name="description"
@@ -110,9 +80,10 @@ const Main = () => {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
         />  
-    <button type="submit">Send</button>
-    </form>
-    </>;
+        <button type="submit">Send</button>
+        </form>
+        </>
+    );
 }
 
 export default Main;
