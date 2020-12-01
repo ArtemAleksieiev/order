@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-amplify/api": "^3.2.13",
     "@aws-amplify/auth": "^3.4.11",
     "@aws-amplify/core": "^3.8.3",
     "@aws-amplify/ui-components": "^0.9.3",
     "@aws-amplify/ui-react": "^0.2.28",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "react-super-responsive-table": "^5.1.4"
   },
